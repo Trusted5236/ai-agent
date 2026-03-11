@@ -5,8 +5,9 @@ from tavily import TavilyClient
 from groq import Groq
 
 load_dotenv()
-TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+
+TAVILY_API_KEY = st.secrets.get("TAVILY_API_KEY") or os.getenv("TAVILY_API_KEY")
+GROQ_API_KEY = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
 
 client = Groq(api_key=GROQ_API_KEY)
 
